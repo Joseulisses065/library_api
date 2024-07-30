@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: library_api
+  datasource:
+    url: 'jdbc:mysql://172.31.0.2:3306/booksdb'
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: docker
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      dialect: org.hibernate.dialect.MySQLDialect

@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  mysql:
+    container_name: 'books_api_mysql'
+    image: 'mysql:8.1'
+    environment:
+      - MYSQL_DATABASE=booksdb
+      - MYSQL_PASSWORD=docker
+      - MYSQL_ROOT_PASSWORD=docker
+      - MYSQL_USER=docker
+    ports:
+      - '3306:3306'
