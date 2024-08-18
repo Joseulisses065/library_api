@@ -1,12 +1,16 @@
-version: '3.8'
+version: '3.9'
 services:
-  mysql:
-    container_name: 'books_api_mysql'
-    image: 'mysql:8.1'
+  db_postgres_sads:
+    image: postgres
+    restart: always
+    shm_size: 128mb
     environment:
-      - MYSQL_DATABASE=booksdb
-      - MYSQL_PASSWORD=docker
-      - MYSQL_ROOT_PASSWORD=docker
-      - MYSQL_USER=docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: booksdb
     ports:
-      - '3306:3306'
+      - "5432:5432"
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

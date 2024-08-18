@@ -8,6 +8,7 @@ public class Book {
     private String lastName;
     private String email;
     private String password;
-
     private Gender gender;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }
