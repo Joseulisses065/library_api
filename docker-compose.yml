@@ -7,10 +7,19 @@ services:
     environment:
       POSTGRES_PASSWORD: docker
       POSTGRES_DB: booksdb
+    volumes:
+      - postgres_sads_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-  adminer:
-    image: adminer
-    restart: always
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: docker@exemplo.com
+      PGADMIN_DEFAULT_PASSWORD: docker
     ports:
       - 8080:8080
+    depends_on:
+      - db_postgres_sads
+volumes:
+  postgres_sads_data:
